@@ -13,23 +13,23 @@ class App extends React.Component {
     }
   }
 
-  handleInput= event => {
+  handleInput= (event) => {
     const vat = parseInt(event.target.value)
     this.setState({
       vatRate: vat
     })
   }
 
-  handleInputIncVat= event => {
+  handleInputIncVat= (event) => {
     const inc = parseInt(event.target.value)
     this.setState({
       incVat: inc,
-      exVat:  incVatToExtVat(this.state.vatRate, inc),
+      exVat: incVatToExtVat(this.state.vatRate, inc),
       vatSum: inc - incVatToExtVat(this.state.vatRate, inc)
     })
   }
 
-  handleInputExVat= event => {
+  handleInputExVat= (event) => {
     const ex = parseInt(event.target.value)
     this.setState({
       incVat: exVatToIncVat(this.state.vatRate, ex),
@@ -37,7 +37,6 @@ class App extends React.Component {
       vatSum: exVatToIncVat(this.state.vatRate, ex) - ex
     })
   }
-
 
   render() {
     return (
@@ -82,7 +81,7 @@ class App extends React.Component {
                     type="number"
                     name="inkVat"
                     onChange={this.handleInputIncVat}
-                    value={this.state.incVat.toFixed(0)}/>
+                    value={this.state.incVat.toFixed(0)} />
                 </div>
                 <div className="input-textfield">
                   <label htmlFor="ExVat">Exklusive moms</label>
@@ -104,11 +103,8 @@ class App extends React.Component {
           </div>
         </div>
       </div>
-
-
     )
   }
-
 }
 
 export default App
